@@ -10,7 +10,7 @@ javaSource in Compile := (sourceDirectory in Compile).value
 
 mainClass := Some("com.automation.Main")
 
-resourceDirectory in (Compile, run) := baseDirectory.value / "resources"
+resourceDirectory in Compile := baseDirectory.value / "resources"
 
 libraryDependencies ++= Seq(
   "org.seleniumhq.selenium" % "selenium-java" % "3.0.1",
