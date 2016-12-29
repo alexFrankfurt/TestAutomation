@@ -42,6 +42,16 @@ class Steps(driver: WebDriver, logger: Logger) {
     mainPage.openThreeButton
     mainPage.openAccountPage
   }
+  
+  def isLoginPage(s: String): Boolean = {
+    val loginPage = new LoginPage(driver)
+    loginPage.haseText(s)
+  }
+  
+  def isAccPage: Boolean  = {    
+    val accPage = new AccountPage(driver)
+    accPage.check()
+  }
 }
 
 object Steps {
