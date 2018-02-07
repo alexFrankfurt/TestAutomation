@@ -6,8 +6,8 @@ import org.testng.Assert
 
 class Main {
 
-  val UserEmail = "alex_frankfurt@mail.ru"
-  val UserPassword = "might39"
+  val UserEmail = "nju@3a.by"
+  val UserPassword = "password"
   val InvalidUserPassword = "fjldksjfl"
   val SignInText = "Sign in to Vocabulary.com"
   val UserName = "Alex A."
@@ -19,37 +19,36 @@ class Main {
     steps = Steps()
   }
 
-//  @Test
+  @Test
   def openSignIn() = {
     steps.openSignIn()
-    Assert.assertTrue(steps.isLoginPage(SignInText)
+    Assert.assertTrue(steps.isLoginPage(SignInText))
   }
 
-//  @Test
+  @Test
   def login() = {
     steps.signIn(UserEmail, UserPassword)
-    Assert.assertTrue(steps.loggedIn(Username))
+    Assert.assertTrue(steps.loggedIn(UserName))
   }
 
 
-//  @Test
-  def incorrectLogin = {
+  @Test
+  def incorrectLogin = { 
     steps.incorrectSignIn(UserEmail, InvalidUserPassword)
-    Assert.assertTrue(steps.incorrectLogInMessage())
+    Assert.assertTrue(steps.incorrectLogInMessage)
   }
 
 
 //  @Test
-  def openSignUp() = {
-    steps.openSignUp()
-    Assert.assertTrue(steps.isSignUpForm())
-  }
+//  def openSignUp() = {
+//    steps.openSignUp()
+//    Assert.assertTrue(steps.isSignUpForm)
+//  }
 
   @Test
   def openAccount() = {
     steps.signIn(UserEmail, UserPassword)
-    steps.accountLookUp
-    Assert.assertTrue(steps.isAccauntPage())
+    Assert.assertTrue(steps.isAccountPage)
   }
 
   @AfterMethod(description = "Stop Browser")

@@ -25,6 +25,12 @@ class LoginPage(driver: WebDriver){
   @FindBy(xpath = "//*[@id='loginform']/div[1]/p[1]")
   var msg: WebElement = null
 
+  @FindBy(xpath = "//*[@id=\"loginform\"]/h1")
+  var signInMsg: WebElement = null
+
+  @FindBy(xpath = "//*[@id=\"loginform\"]/div[1]/p[1]")
+  var errorLogInMsg: WebElement = null
+
   PageFactory.initElements(this.driver, this)
 
   def openPage() = {
@@ -46,6 +52,14 @@ class LoginPage(driver: WebDriver){
     PageFactory.initElements(this.driver, this)
 
     logger.info("Invalid  data " + msg.getText)
+  }
+
+  def hasText(s: String): Boolean = {
+    signInMsg.getText == s
+  }
+
+  def loginError(): Boolean = {
+    errorLogInMsg.getText == "Sorry, we don't recognize that username and password."
   }
 
 }

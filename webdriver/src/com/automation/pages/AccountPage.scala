@@ -14,13 +14,19 @@ class AccountPage(driver: WebDriver){
 
   val BaseUrl = "https://www.vocabulary.com/account/"
   
-  @FindBy(xpath = "//*[@id='pageContent']/div/div/div/nav/ul/li[1]/a")
+  @FindBy(xpath = "/html/body/div[1]/header/div/nav[1]/div/div/div[3]")
   var accINfField: WebElement = null
   
   PageFactory.initElements(this.driver, this)
+
+
+  def openPage() = {
+    driver.navigate().to(BaseUrl)
+    logger.info("Account page opened")
+  }
   
   def check(): Boolean = {
-    accINfField.getText == "Account Information"
+    accINfField.getText == "Alex A."
   }
   
 }

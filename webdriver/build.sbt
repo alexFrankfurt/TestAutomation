@@ -8,7 +8,7 @@ scalaSource in Compile := (sourceDirectory in Compile).value
 
 javaSource in Compile := (sourceDirectory in Compile).value
 
-mainClass := Some("com.automation.Main")
+mainClass in (Compile, run) := Some("com.automation.Main")
 
 resourceDirectory in Compile := baseDirectory.value / "resources"
 

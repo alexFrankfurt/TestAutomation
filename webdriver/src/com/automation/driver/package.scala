@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver
 package object driver {
   private[automation] val logger: Logger = LogManager.getRootLogger
   private val WEBDRIVER_GECKO_DRIVER: String = "webdriver.chrome.driver"
-  private val GECKODRIVER_GECKODRIVER_EXE_PATH: String = ".\\..\\..\\chromedriver\\chromedriver.exe"
+  private val GECKODRIVER_GECKODRIVER_EXE_PATH: String = "./../../chromedriver/chromedriver"
 
   def getDriver = {
     System.setProperty(WEBDRIVER_GECKO_DRIVER, GECKODRIVER_GECKODRIVER_EXE_PATH)

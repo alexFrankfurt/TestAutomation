@@ -11,13 +11,20 @@ class SignupPage(driver: WebDriver) {
 
   val BaseUrl = "https://www.vocabulary.com/signup/"
 
-  @FindBy(xpath = "//button[@class = 'ss-mail']")
-  var signupStudent: WebElement = null
+  @FindBy(css = "body > main > div.couplet > h1")
+  var signupTxt: WebElement = null
 
   PageFactory.initElements(this.driver, driver)
 
-  def openSignUp() = {
 
+  def openPage() = {
+    driver.navigate().to(BaseUrl)
+    logger.info("Sign up page opened")
+  }
+
+  def isSignUp(): Boolean = {
+    logger.info(signupTxt.getText)
+    signupTxt.getText == "Sign up for Vocabulary.com"
   }
 
 }
